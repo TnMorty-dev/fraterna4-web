@@ -4,6 +4,14 @@
 (function () {
     'use strict';
 
+    // ========================================
+    // ⚙️ CONFIGURACIÓN DEL SERVIDOR
+    // Cambia este valor a true para ACTIVO o false para INACTIVO
+    // ========================================
+    const SERVER_IS_ONLINE = false;
+    // ========================================
+    // ========================================
+
     class App {
         constructor() {
             this.navToggle = document.querySelector('.nav-toggle');
@@ -11,9 +19,25 @@
         }
 
         init() {
+            this.setupServerStatus();
             this.setupMobileNav();
             this.setupTabs();
             this.setupFAQ();
+        }
+
+        setupServerStatus() {
+            const card = document.getElementById('server-status');
+            const statusText = document.getElementById('status-text');
+
+            if (card && statusText) {
+                if (SERVER_IS_ONLINE) {
+                    card.classList.add('online');
+                    statusText.textContent = 'ACTIVO';
+                } else {
+                    card.classList.remove('online');
+                    statusText.textContent = 'INACTIVO';
+                }
+            }
         }
 
         setupMobileNav() {

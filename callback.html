@@ -63,21 +63,14 @@
     </div>
     <script>
         (function () {
-            // Parse the hash fragment
             const hash = window.location.hash.substring(1);
             const params = new URLSearchParams(hash);
-
             const accessToken = params.get('access_token');
-            const expiresIn = params.get('expires_in');
-            const tokenType = params.get('token_type');
 
             if (accessToken) {
-                // Store temporarily and redirect
-                sessionStorage.setItem('discord_callback_token', accessToken);
-                sessionStorage.setItem('discord_callback_expires', expiresIn);
-                window.location.href = './index.html#miembros';
+                // Redirect to index with the hash (token stays in URL)
+                window.location.href = './index.html' + window.location.hash;
             } else {
-                // No token, redirect back
                 window.location.href = './index.html';
             }
         })();

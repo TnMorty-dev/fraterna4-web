@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fraterna 4 - Servidor de Minecraft. Únete a nuestra comunidad y vive la mejor experiencia de supervivencia.">
+    <meta name="description"
+        content="Fraterna 4 - Servidor de Minecraft. Únete a nuestra comunidad y vive la mejor experiencia de supervivencia.">
     <title>Fraterna 4 | Servidor de Minecraft</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
 </head>
+
 <body>
     <!-- Particles Background -->
     <div id="particles-container"></div>
 
+    <!-- Floating Minecraft Blocks -->
+    <div class="floating-blocks">
+        <div class="block block-1"></div>
+        <div class="block block-2"></div>
+        <div class="block block-3"></div>
+        <div class="block block-4"></div>
+        <div class="block block-5"></div>
+    </div>
+
+    <!-- Nether Portal Effect -->
+    <div class="portal-effect">
+        <div class="portal-glow"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-brand">
-            <span class="logo-icon">⛏️</span>
+            <img src="assets/logo.jpg" alt="Fraterna 4" class="nav-logo">
             <span class="logo-text">Fraterna 4</span>
         </div>
         <ul class="nav-links">
@@ -36,18 +55,27 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
+        <!-- Animated Background Elements -->
+        <div class="hero-particles"></div>
+        <div class="hero-gradient-orb orb-1"></div>
+        <div class="hero-gradient-orb orb-2"></div>
+        <div class="hero-gradient-orb orb-3"></div>
+
         <div class="hero-content">
-            <div class="hero-badge animate-float">🎮 Temporada 4</div>
             <h1 class="hero-title">
                 <span class="title-line">Bienvenido a</span>
-                <span class="title-main glitch" data-text="FRATERNA 4">FRATERNA 4</span>
+                <span class="title-main glitch neon-text" data-text="FRATERNA 4">FRATERNA 4</span>
             </h1>
             <p class="hero-subtitle typewriter">El servidor de Minecraft donde nacen las leyendas</p>
+
+
             <div class="hero-buttons">
-                <a href="#unirse" class="btn btn-primary pulse">
-                    <span>🚀</span> Únete Ahora
+                <a href="#unirse" class="btn btn-primary pulse btn-glow">
+                    <span class="btn-icon">🚀</span>
+                    <span>Únete Ahora</span>
+                    <span class="btn-shine"></span>
                 </a>
-                <a href="#sobre" class="btn btn-secondary">
+                <a href="#sobre" class="btn btn-secondary btn-glass">
                     <span>📖</span> Descubre Más
                 </a>
             </div>
@@ -64,14 +92,13 @@
     <section id="sobre" class="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">✨ Nuestra Historia</span>
                 <h2 class="section-title">Sobre <span class="highlight">Fraterna 4</span></h2>
             </div>
             <div class="about-grid">
                 <div class="about-card glass" data-aos="fade-up">
                     <div class="card-icon">🌍</div>
-                    <h3>Mundo Survival</h3>
-                    <p>Explora un mundo generado con semilla única, lleno de secretos y aventuras por descubrir.</p>
+                    <h3>Mundo Survival con Mods</h3>
+                    <p>Servidor survival con mods que añaden nuevas mecánicas, biomas y aventuras para explorar.</p>
                 </div>
                 <div class="about-card glass" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-icon">👥</div>
@@ -99,7 +126,7 @@
                 <span class="section-badge">📚 Guía Completa</span>
                 <h2 class="section-title">Instrucciones</h2>
             </div>
-            
+
             <div class="tabs-container">
                 <div class="tabs-nav">
                     <button class="tab-btn active" data-tab="reglas">
@@ -114,11 +141,11 @@
                     <button class="tab-btn" data-tab="faq">
                         <span>❓</span> FAQ
                     </button>
-                    <button class="tab-btn" data-tab="historia">
-                        <span>📖</span> Historia
+                    <button class="tab-btn" data-tab="rangos">
+                        <span>👑</span> Rangos
                     </button>
                 </div>
-                
+
                 <div class="tabs-content">
                     <!-- Reglas Tab -->
                     <div class="tab-panel active" id="tab-reglas">
@@ -129,28 +156,32 @@
                                     <span class="rule-number">01</span>
                                     <div class="rule-text">
                                         <h4>Respeto Mutuo</h4>
-                                        <p>Trata a todos los jugadores con respeto. No se toleran insultos, discriminación ni acoso.</p>
+                                        <p>Trata a todos los jugadores con respeto. No se toleran insultos,
+                                            discriminación ni acoso.</p>
                                     </div>
                                 </div>
                                 <div class="rule-item">
                                     <span class="rule-number">02</span>
                                     <div class="rule-text">
                                         <h4>No Griefing</h4>
-                                        <p>Está prohibido destruir o modificar construcciones ajenas sin permiso del propietario.</p>
+                                        <p>Está prohibido destruir o modificar construcciones ajenas sin permiso del
+                                            propietario.</p>
                                     </div>
                                 </div>
                                 <div class="rule-item">
                                     <span class="rule-number">03</span>
                                     <div class="rule-text">
                                         <h4>Sin Hacks ni Trampas</h4>
-                                        <p>El uso de clientes hackeados, X-ray o cualquier ventaja injusta resultará en ban permanente.</p>
+                                        <p>El uso de clientes hackeados, X-ray o cualquier ventaja injusta resultará en
+                                            ban permanente.</p>
                                     </div>
                                 </div>
                                 <div class="rule-item">
                                     <span class="rule-number">04</span>
                                     <div class="rule-text">
                                         <h4>Juego Limpio</h4>
-                                        <p>No está permitido el robo de items ni el PvP sin consentimiento de ambas partes.</p>
+                                        <p>No está permitido el robo de items ni el PvP sin consentimiento de ambas
+                                            partes.</p>
                                     </div>
                                 </div>
                                 <div class="rule-item">
@@ -164,13 +195,14 @@
                                     <span class="rule-number">06</span>
                                     <div class="rule-text">
                                         <h4>Diviértete</h4>
-                                        <p>¡Lo más importante es pasarlo bien! Colabora, explora y crea recuerdos inolvidables.</p>
+                                        <p>¡Lo más importante es pasarlo bien! Colabora, explora y crea recuerdos
+                                            inolvidables.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Conectar Tab -->
                     <div class="tab-panel" id="tab-conectar">
                         <div class="panel-content glass">
@@ -180,21 +212,24 @@
                                     <div class="step-icon">1️⃣</div>
                                     <div class="step-content">
                                         <h4>Instala los Mods</h4>
-                                        <p>Descarga e instala el pack de mods desde la sección de Miembros (requiere iniciar sesión).</p>
+                                        <p>Descarga e instala el pack de mods desde la sección de Miembros (requiere
+                                            iniciar sesión).</p>
                                     </div>
                                 </div>
                                 <div class="step">
                                     <div class="step-icon">2️⃣</div>
                                     <div class="step-content">
                                         <h4>Configura tu Launcher</h4>
-                                        <p>Usa un launcher compatible como CurseForge, MultiMC o el launcher oficial con Forge/Fabric.</p>
+                                        <p>Usa un launcher compatible como CurseForge, MultiMC o el launcher oficial con
+                                            Forge/Fabric.</p>
                                     </div>
                                 </div>
                                 <div class="step">
                                     <div class="step-icon">3️⃣</div>
                                     <div class="step-content">
                                         <h4>Obtén la IP</h4>
-                                        <p>Una vez aprobado en la whitelist, podrás ver la IP del servidor en la sección de Miembros.</p>
+                                        <p>Una vez aprobado en la whitelist, podrás ver la IP del servidor en la sección
+                                            de Miembros.</p>
                                     </div>
                                 </div>
                                 <div class="step">
@@ -207,35 +242,61 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Mods Tab -->
                     <div class="tab-panel" id="tab-mods">
                         <div class="panel-content glass">
                             <h3>🛠️ Mods del Servidor</h3>
                             <div class="mods-info">
-                                <div class="mod-highlight">
-                                    <span class="mod-icon">📦</span>
+                                <div class="mod-highlight glow-border">
+                                    <span class="mod-icon spinning">📦</span>
                                     <div class="mod-details">
                                         <h4>Pack de Mods Oficial</h4>
-                                        <p>Todos los mods necesarios en un solo archivo ZIP. Fácil de instalar y configurar.</p>
+                                        <p>Todos los mods necesarios en un solo archivo ZIP. Fácil de instalar y
+                                            configurar.</p>
                                     </div>
                                 </div>
-                                <div class="mod-requirements">
-                                    <h4>Requisitos:</h4>
-                                    <ul>
-                                        <li>✅ Minecraft Java Edition</li>
-                                        <li>✅ Forge/Fabric (según versión)</li>
-                                        <li>✅ 4GB RAM mínimo asignados</li>
-                                        <li>✅ Java 17 o superior</li>
-                                    </ul>
+
+                                <div class="requirements-container">
+                                    <!-- Requisitos Mínimos -->
+                                    <div class="requirements-card requirements-min">
+                                        <div class="requirements-header">
+                                            <span class="req-icon">⚙️</span>
+                                            <h4>Requisitos Mínimos</h4>
+                                        </div>
+                                        <ul class="requirements-list">
+                                            <li><span class="req-check">✅</span> Minecraft Java Edition</li>
+                                            <li><span class="req-check">✅</span> Versión: <span
+                                                    class="version-badge">Desconocida</span></li>
+                                            <li><span class="req-check">✅</span> <strong>4GB RAM</strong> asignados</li>
+                                            <li><span class="req-check">✅</span> Java 17 o superior</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Requisitos Recomendados -->
+                                    <div class="requirements-card requirements-rec">
+                                        <div class="requirements-header">
+                                            <span class="req-icon">🚀</span>
+                                            <h4>Requisitos Recomendados</h4>
+                                        </div>
+                                        <ul class="requirements-list">
+                                            <li><span class="req-check">✅</span> Minecraft Java Edition</li>
+                                            <li><span class="req-check">✅</span> Versión: <span
+                                                    class="version-badge recommended">Desconocida</span></li>
+                                            <li><span class="req-check">✅</span> <strong>8GB RAM</strong> asignados</li>
+                                            <li><span class="req-check">✅</span> Java 17 o superior</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="mod-note">
-                                    <p>💡 <strong>Nota:</strong> La descarga de mods está disponible en la sección de Miembros después de iniciar sesión con Discord.</p>
+
+                                <div class="mod-note glow-effect">
+                                    <p>💡 <strong>Nota:</strong> La descarga de mods está disponible en la sección de
+                                        Miembros después de iniciar sesión con Discord.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- FAQ Tab -->
                     <div class="tab-panel" id="tab-faq">
                         <div class="panel-content glass">
@@ -247,7 +308,8 @@
                                         <span class="faq-icon">+</span>
                                     </button>
                                     <div class="faq-answer">
-                                        <p>¡Sí! Fraterna 4 es completamente gratuito. Solo necesitas pasar la whitelist.</p>
+                                        <p>¡Sí! Fraterna 4 es completamente gratuito. Solo necesitas pasar la whitelist.
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="faq-item">
@@ -265,7 +327,8 @@
                                         <span class="faq-icon">+</span>
                                     </button>
                                     <div class="faq-answer">
-                                        <p>El servidor soporta hasta 20 jugadores simultáneos para mantener un buen rendimiento.</p>
+                                        <p>¡No hay límite! El servidor está preparado para recibir a todos los miembros
+                                            que pasen la whitelist.</p>
                                     </div>
                                 </div>
                                 <div class="faq-item">
@@ -274,7 +337,9 @@
                                         <span class="faq-icon">+</span>
                                     </button>
                                     <div class="faq-answer">
-                                        <p>¡Por supuesto! Animamos a crear contenido. Solo asegúrate de cumplir las reglas.</p>
+                                        <p>¡Se recomienda grabar y streamear! En el título de tu contenido SIEMPRE
+                                            deberá aparecer "Fraterna 4". Solicita el rango Streamer para beneficios
+                                            extra.</p>
                                     </div>
                                 </div>
                                 <div class="faq-item">
@@ -289,39 +354,41 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Historia Tab -->
-                    <div class="tab-panel" id="tab-historia">
+
+                    <!-- Rangos Tab -->
+                    <div class="tab-panel" id="tab-rangos">
                         <div class="panel-content glass">
-                            <h3>📖 Historia de Fraterna</h3>
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-marker">🌱</div>
-                                    <div class="timeline-content">
-                                        <h4>Fraterna 1</h4>
-                                        <p>El comienzo de todo. Un pequeño grupo de amigos decidió crear su propio mundo survival.</p>
-                                    </div>
+                            <h3>👑 Rangos del Servidor</h3>
+                            <div class="ranks-list">
+                                <div class="rank-item" style="--rank-color: #aaaaaa;">
+                                    <div class="rank-name">No Whitelisted</div>
+                                    <p>Usuarios que aún no han pasado el proceso de whitelist. ¡Abre un ticket en
+                                        Discord para unirte!</p>
                                 </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-marker">🌿</div>
-                                    <div class="timeline-content">
-                                        <h4>Fraterna 2</h4>
-                                        <p>La comunidad creció. Se añadieron mods y comenzaron los primeros eventos.</p>
-                                    </div>
+                                <div class="rank-item" style="--rank-color: #00d26a;">
+                                    <div class="rank-name">Miembro</div>
+                                    <p>Jugadores que han pasado la whitelist y tienen acceso completo al servidor.
+                                        ¡Bienvenido a la familia!</p>
                                 </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-marker">🌳</div>
-                                    <div class="timeline-content">
-                                        <h4>Fraterna 3</h4>
-                                        <p>Nuevos horizontes. Más jugadores, construcciones épicas y memorias increíbles.</p>
-                                    </div>
+                                <div class="rank-item" style="--rank-color: #ffd700;">
+                                    <div class="rank-name">OG</div>
+                                    <p>Veteranos de ediciones anteriores de Fraterna. Estos jugadores llevan con
+                                        nosotros desde el principio.</p>
                                 </div>
-                                <div class="timeline-item current">
-                                    <div class="timeline-marker">🏰</div>
-                                    <div class="timeline-content">
-                                        <h4>Fraterna 4</h4>
-                                        <p>La temporada actual. Nuevos mods, nuevo mapa, nuevas aventuras. ¡Únete a la historia!</p>
-                                    </div>
+                                <div class="rank-item" style="--rank-color: #a855f7;">
+                                    <div class="rank-name">VIP</div>
+                                    <p>Miembros que han apoyado al servidor con donaciones. ¡Gracias por mantener viva
+                                        la comunidad!</p>
+                                </div>
+                                <div class="rank-item" style="--rank-color: #f97316;">
+                                    <div class="rank-name">Staff</div>
+                                    <p>Equipo de moderación y soporte. Encargados de mantener el orden y ayudar a los
+                                        jugadores.</p>
+                                </div>
+                                <div class="rank-item" style="--rank-color: #ef4444;">
+                                    <div class="rank-name">Owner</div>
+                                    <p>Administradores del servidor. Responsables de la gestión y decisiones importantes
+                                        de Fraterna.</p>
                                 </div>
                             </div>
                         </div>
@@ -346,12 +413,13 @@
                     <span class="section-badge">🚀 Aventura te espera</span>
                     <h2 class="section-title">¿Quieres <span class="highlight">Unirte</span>?</h2>
                     <p class="join-description">
-                        Forma parte de nuestra comunidad y vive experiencias únicas en Minecraft. 
+                        Forma parte de nuestra comunidad y vive experiencias únicas en Minecraft.
                         El primer paso es unirte a nuestro Discord.
                     </p>
                     <a href="https://discord.gg/dRxBrTc3Zw" target="_blank" rel="noopener" class="btn btn-discord">
                         <svg class="discord-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                            <path
+                                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                         </svg>
                         Únete a Discord
                     </a>
@@ -395,6 +463,29 @@
         </div>
     </section>
 
+    <!-- Streamer Section -->
+    <section id="streamer" class="streamer">
+        <div class="container">
+            <div class="streamer-box glass">
+                <div class="streamer-icon">🎬</div>
+                <div class="streamer-content">
+                    <h2>¿Eres <span class="highlight">Streamer</span>?</h2>
+                    <p>¡Solicita el rango Streamer para obtener beneficios exclusivos!</p>
+                    <ul class="streamer-benefits">
+                        <li>📺 Acceso al canal de spam para streams y vídeos</li>
+                        <li>🏷️ Rango especial visible en el servidor</li>
+                        <li>📢 Promoción de tu contenido en la comunidad</li>
+                    </ul>
+                    <p class="streamer-note">⚠️ <strong>Importante:</strong> En el título de tu contenido SIEMPRE deberá
+                        aparecer "Fraterna 4"</p>
+                    <a href="https://discord.gg/dRxBrTc3Zw" target="_blank" rel="noopener" class="btn btn-primary">
+                        <span>🎫</span> Solicitar en Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Members Section -->
     <section id="miembros" class="members">
         <div class="container">
@@ -402,7 +493,7 @@
                 <span class="section-badge">🔐 Área Exclusiva</span>
                 <h2 class="section-title">Zona de <span class="highlight">Miembros</span></h2>
             </div>
-            
+
             <!-- Not Logged In State -->
             <div id="members-login" class="members-login glass">
                 <div class="login-icon">🔒</div>
@@ -410,12 +501,13 @@
                 <p>Inicia sesión con Discord para acceder a la IP del servidor y descargar los mods.</p>
                 <button id="discord-login-btn" class="btn btn-discord">
                     <svg class="discord-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                        <path
+                            d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                     </svg>
                     Iniciar Sesión con Discord
                 </button>
             </div>
-            
+
             <!-- Logged In State (Hidden by default) -->
             <div id="members-content" class="members-content" style="display: none;">
                 <div class="member-header">
@@ -426,7 +518,7 @@
                     </div>
                     <button id="logout-btn" class="btn btn-outline">Cerrar Sesión</button>
                 </div>
-                
+
                 <!-- Access Denied State (shown if no role) -->
                 <div id="access-denied" class="access-denied glass" style="display: none;">
                     <div class="denied-icon">⚠️</div>
@@ -434,7 +526,7 @@
                     <p>Has iniciado sesión pero no tienes el rol necesario para ver esta información.</p>
                     <p>Asegúrate de haber pasado la whitelist y tener el rol correspondiente en Discord.</p>
                 </div>
-                
+
                 <!-- Full Access Content -->
                 <div id="full-access" class="full-access-grid" style="display: none;">
                     <div class="access-card glass">
@@ -450,7 +542,7 @@
                         </div>
                         <p class="ip-note">Haz clic en el botón para copiar la IP</p>
                     </div>
-                    
+
                     <div class="access-card glass">
                         <div class="card-header">
                             <span class="card-icon">📦</span>
@@ -461,7 +553,8 @@
                                 <span>⬇️</span> Descargar ZIP
                             </a>
                             <p class="download-note">¿Problemas con la descarga?</p>
-                            <a href="#" id="download-mediafire" class="btn btn-secondary download-btn" target="_blank" rel="noopener">
+                            <a href="#" id="download-mediafire" class="btn btn-secondary download-btn" target="_blank"
+                                rel="noopener">
                                 <span>🔗</span> Descargar desde MediaFire
                             </a>
                         </div>
@@ -476,10 +569,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="logo-icon">⛏️</span>
+                    <img src="assets/logo.jpg" alt="Fraterna 4" class="footer-logo">
                     <span class="logo-text">Fraterna 4</span>
                 </div>
-                <p class="footer-text">© 2024 Fraterna 4. Hecho con ❤️ para la comunidad.</p>
+                <p class="footer-text">© 2024 Fraterna 4. Hecho con ❤️ por <span class="footer-author">TnMorty</span>
+                </p>
                 <div class="footer-links">
                     <a href="https://discord.gg/dRxBrTc3Zw" target="_blank" rel="noopener">Discord</a>
                 </div>
@@ -497,4 +591,5 @@
     <script src="js/discord.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
