@@ -5,12 +5,12 @@
 (function () {
     'use strict';
 
-    // Configuration - THESE NEED TO BE FILLED IN
+    // Configuration - CONFIGURED FOR FRATERNA 4
     const CONFIG = {
-        CLIENT_ID: 'YOUR_DISCORD_CLIENT_ID', // Replace with your Discord app client ID
-        REDIRECT_URI: window.location.origin + '/callback.html',
-        REQUIRED_ROLE_ID: 'YOUR_ROLE_ID', // Replace with the role ID that grants access
-        GUILD_ID: 'YOUR_GUILD_ID', // Replace with your Discord server ID
+        CLIENT_ID: '1271113233423532083',
+        REDIRECT_URI: 'https://tnmorty-dev.github.io/fraterna4-web/callback.html',
+        REQUIRED_ROLE_ID: '1449110610779312148',
+        GUILD_ID: '1240583622214549515',
         // Server info - to be revealed when authorized
         SERVER_IP: 'Próximamente',
         MODS_ZIP_URL: '#',
