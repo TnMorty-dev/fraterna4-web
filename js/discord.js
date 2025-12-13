@@ -11,22 +11,25 @@
         REDIRECT_URI: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
             ? window.location.origin + '/callback.html'
             : 'https://tnmorty-dev.github.io/fraterna4-web/callback.html',
-        REQUIRED_ROLE_ID: '1449110610779312148',
         GUILD_ID: '1240583622214549515',
+        // Role IDs - IDs de los roles de Discord
+        PRUEBA_ROLE_ID: '1449110610779312148',  // Rol de prueba/miembro
+        OWNER_ROLE_ID: '1240615769080070225',   // Rol de owner
+        STAFF_ROLE_ID: '1240615890530336818',   // Rol de staff
         SERVER_IP: 'Próximamente',
         MODS_ZIP_URL: '#',
         MODS_MEDIAFIRE_URL: '#'
     };
 
     const DISCORD_API = 'https://discord.com/api/v10';
-    const OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${CONFIG.CLIENT_ID}&redirect_uri=${encodeURIComponent(CONFIG.REDIRECT_URI)}&response_type=token&scope=identify`;
+    const OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${CONFIG.CLIENT_ID}&redirect_uri=${encodeURIComponent(CONFIG.REDIRECT_URI)}&response_type=token&scope=identify%20guilds.members.read`;
 
     class DiscordAuth {
         constructor() {
             this.user = null;
             this.hasAccess = false;
+            this.userRole = null; // 'owner', 'prueba', or null (no role)
         }
-
         async init() {
             // Check if returning from callback with hash token
             if (window.location.hash.includes('access_token')) {
@@ -75,6 +78,7 @@
                 if (Date.now() < parseInt(expiry)) {
                     this.user = JSON.parse(stored);
                     this.hasAccess = localStorage.getItem('discord_access') === 'true';
+                    this.userRole = localStorage.getItem('discord_role') || null;
                 } else {
                     this.clearSession();
                 }
@@ -100,6 +104,7 @@
             this.clearSession();
             this.user = null;
             this.hasAccess = false;
+            this.userRole = null;
             this.updateUI();
             showToast('Sesión cerrada');
         }
@@ -109,6 +114,7 @@
             localStorage.removeItem('discord_token');
             localStorage.removeItem('discord_expiry');
             localStorage.removeItem('discord_access');
+            localStorage.removeItem('discord_role');
         }
 
         async handleCallback(accessToken, expiresIn) {
@@ -131,9 +137,8 @@
                 localStorage.setItem('discord_token', accessToken);
                 localStorage.setItem('discord_expiry', (Date.now() + expiresIn * 1000).toString());
 
-                // Grant access to authenticated users
-                this.hasAccess = true;
-                localStorage.setItem('discord_access', 'true');
+                // Check user roles in the guild
+                await this.checkUserRoles(accessToken);
 
                 showToast(`¡Bienvenido, ${this.user.username}!`);
                 this.updateUI();
@@ -145,6 +150,69 @@
             }
         }
 
+        async checkUserRoles(accessToken) {
+            try {
+                // Get user's guild member data
+                const memberRes = await fetch(`${DISCORD_API}/users/@me/guilds/${CONFIG.GUILD_ID}/member`, {
+                    headers: { Authorization: `Bearer ${accessToken}` }
+                });
+
+                if (!memberRes.ok) {
+                    console.log('User not in guild or cannot fetch member data');
+                    this.hasAccess = false;
+                    this.userRole = null;
+                    localStorage.setItem('discord_access', 'false');
+                    localStorage.setItem('discord_role', '');
+                    return;
+                }
+
+                const memberData = await memberRes.json();
+                const userRoles = memberData.roles || [];
+
+                console.log('User roles:', userRoles);
+
+                // Check if user has owner role (highest priority)
+                if (userRoles.includes(CONFIG.OWNER_ROLE_ID)) {
+                    this.hasAccess = true;
+                    this.userRole = 'owner';
+                    localStorage.setItem('discord_access', 'true');
+                    localStorage.setItem('discord_role', 'owner');
+                    console.log('User has OWNER role');
+                }
+                // Check if user has staff role
+                else if (userRoles.includes(CONFIG.STAFF_ROLE_ID)) {
+                    this.hasAccess = true;
+                    this.userRole = 'staff';
+                    localStorage.setItem('discord_access', 'true');
+                    localStorage.setItem('discord_role', 'staff');
+                    console.log('User has STAFF role');
+                }
+                // Check if user has prueba role
+                else if (userRoles.includes(CONFIG.PRUEBA_ROLE_ID)) {
+                    this.hasAccess = true;
+                    this.userRole = 'prueba';
+                    localStorage.setItem('discord_access', 'true');
+                    localStorage.setItem('discord_role', 'prueba');
+                    console.log('User has PRUEBA role');
+                }
+                // User doesn't have required roles
+                else {
+                    this.hasAccess = false;
+                    this.userRole = null;
+                    localStorage.setItem('discord_access', 'false');
+                    localStorage.setItem('discord_role', '');
+                    console.log('User has NO required role');
+                }
+
+            } catch (error) {
+                console.error('Error checking roles:', error);
+                this.hasAccess = false;
+                this.userRole = null;
+                localStorage.setItem('discord_access', 'false');
+                localStorage.setItem('discord_role', '');
+            }
+        }
+
         updateUI() {
             const loginSection = document.getElementById('members-login');
             const contentSection = document.getElementById('members-content');
@@ -152,6 +220,8 @@
             const fullAccess = document.getElementById('full-access');
             const userAvatar = document.getElementById('user-avatar');
             const userName = document.getElementById('user-name');
+            const memberBadge = document.getElementById('member-badge');
+            const userRoleBadge = document.getElementById('user-role-badge');
             const serverIp = document.getElementById('server-ip');
             const downloadPrimary = document.getElementById('download-primary');
             const downloadMediafire = document.getElementById('download-mediafire');
@@ -167,6 +237,44 @@
                     userAvatar.src = avatarUrl;
                 }
                 if (userName) userName.textContent = this.user.global_name || this.user.username;
+
+                // Update role badge based on user role
+                if (memberBadge) {
+                    if (this.userRole === 'owner') {
+                        memberBadge.textContent = '✅ Miembro Verificado';
+                        memberBadge.classList.add('role-owner');
+                        memberBadge.classList.remove('role-prueba', 'role-staff');
+                    } else if (this.userRole === 'staff') {
+                        memberBadge.textContent = '✅ Miembro Verificado';
+                        memberBadge.classList.add('role-staff');
+                        memberBadge.classList.remove('role-owner', 'role-prueba');
+                    } else if (this.userRole === 'prueba') {
+                        memberBadge.textContent = '✅ Miembro Verificado';
+                        memberBadge.classList.add('role-prueba');
+                        memberBadge.classList.remove('role-owner', 'role-staff');
+                    } else {
+                        memberBadge.textContent = '⚠️ Sin Rango';
+                        memberBadge.classList.remove('role-owner', 'role-prueba', 'role-staff');
+                    }
+                }
+
+                if (userRoleBadge) {
+                    if (this.userRole === 'owner') {
+                        userRoleBadge.textContent = 'Rango: Owner';
+                        userRoleBadge.className = 'user-role-badge role-owner';
+                        userRoleBadge.style.display = 'inline-block';
+                    } else if (this.userRole === 'staff') {
+                        userRoleBadge.textContent = 'Rango: Staff';
+                        userRoleBadge.className = 'user-role-badge role-staff';
+                        userRoleBadge.style.display = 'inline-block';
+                    } else if (this.userRole === 'prueba') {
+                        userRoleBadge.textContent = 'Rango: Prueba';
+                        userRoleBadge.className = 'user-role-badge role-prueba';
+                        userRoleBadge.style.display = 'inline-block';
+                    } else {
+                        userRoleBadge.style.display = 'none';
+                    }
+                }
 
                 if (this.hasAccess) {
                     if (accessDenied) accessDenied.style.display = 'none';

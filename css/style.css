@@ -664,15 +664,35 @@ section {
 }
 
 .mod-note {
-    padding: var(--spacing-md);
-    background: rgba(252, 179, 58, 0.1);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(252, 179, 58, 0.15) 0%, rgba(252, 179, 58, 0.08) 100%);
     border-radius: var(--radius-md);
-    border-left: 3px solid var(--color-gold);
+    border-left: 4px solid var(--color-gold);
+    border: 1px solid rgba(252, 179, 58, 0.3);
+    box-shadow: 0 4px 15px rgba(252, 179, 58, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.mod-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-gold);
 }
 
 .mod-note p {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.mod-note strong {
+    color: var(--color-gold);
 }
 
 /* FAQ */
@@ -1037,21 +1057,133 @@ section {
     margin-top: 4px;
 }
 
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    align-items: center;
+}
+
+.user-role-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-xl);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.user-role-badge.role-owner {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(252, 179, 58, 0.3));
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    text-shadow: 0 0 10px rgba(252, 179, 58, 0.5);
+}
+
+.user-role-badge.role-prueba {
+    background: rgba(0, 210, 106, 0.2);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.user-role-badge.role-staff {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.3), rgba(59, 130, 246, 0.3));
+    color: #5865F2;
+    border: 1px solid #5865F2;
+    text-shadow: 0 0 10px rgba(88, 101, 242, 0.5);
+}
+
+.member-badge.role-owner {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(252, 179, 58, 0.2));
+    color: var(--color-gold);
+    border: 1px solid rgba(252, 179, 58, 0.3);
+}
+
+.member-badge.role-prueba {
+    background: rgba(0, 210, 106, 0.2);
+    color: var(--color-primary);
+}
+
+.member-badge.role-staff {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(59, 130, 246, 0.2));
+    color: #5865F2;
+    border: 1px solid rgba(88, 101, 242, 0.3);
+}
+
 /* Access Denied */
 .access-denied {
     padding: var(--spacing-xl);
     text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .denied-icon {
     font-size: 4rem;
     margin-bottom: var(--spacing-md);
+    animation: pulse 2s ease-in-out infinite;
 }
 
 .access-denied h3 {
-    font-size: 1.5rem;
-    color: var(--color-gold);
+    font-size: 1.75rem;
+    color: var(--color-redstone);
     margin-bottom: var(--spacing-sm);
+}
+
+.denied-main-text {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.denied-info-box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+    border-left: 3px solid var(--color-primary);
+}
+
+.denied-info-box h4 {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.denied-info-box ol {
+    padding-left: var(--spacing-lg);
+    color: var(--color-text-muted);
+}
+
+.denied-info-box li {
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.denied-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.denied-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+}
+
+.view-ranks-btn {
+    background: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+}
+
+.view-ranks-btn:hover {
+    background: rgba(252, 179, 58, 0.1);
+    transform: translateY(-2px);
 }
 
 .access-denied p {
